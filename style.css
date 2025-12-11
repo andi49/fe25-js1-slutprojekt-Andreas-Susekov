@@ -1,0 +1,41 @@
+:root {
+    --Midnight-Black: #1B1B1B;
+    --Crimson-Red: #E50914;
+    --Silver-Gray: #C0C0C0;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: var(--Midnight-Black);
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topMovieCarusel{
+    width: 100%;
+    height: 50%;
+    background-color: #04AA6D;
+}
