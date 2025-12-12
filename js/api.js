@@ -24,6 +24,7 @@ try {
 
     const data = await res.json()
   return (data)
+  
 
 } catch(err) {
     console.error('Data error', err)
