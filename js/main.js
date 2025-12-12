@@ -1,10 +1,13 @@
-import { getData } from "./api.js";
+import { getDataTopRated, getDataPopular, searchMovie } from "./api.js";
+import { searchInputFunc } from "./search.js";
+// import { popularMovie } from "./popularMovie.js";
 
-getData().then((data) => {
+getDataTopRated().then((data) => {
   const base = "https://image.tmdb.org/t/p/w500";
   console.log(data);
 
   const movieRow = document.querySelector("#movieCarusel");
+  const carousel = document.getElementById("carousel");
 
   const moveListes = document.createElement("div");
   moveListes.classList.add("movie-list");
@@ -27,6 +30,7 @@ getData().then((data) => {
     movieItem.appendChild(fakeP);
 
     moveListes.appendChild(movieItem);
+    
     carousel.appendChild(movieItem);
     movieRow.appendChild(moveListes);
 
@@ -52,8 +56,10 @@ getData().then((data) => {
   }
 });
 
-function carouselBtn() {
-  const carousel = document.getElementById("carousel");
+
+
+ function carouselBtn() {
+
   const nextBtn = document.getElementById("nextBtn");
   const prevBtn = document.getElementById("prevBtn");
 
@@ -68,5 +74,6 @@ function carouselBtn() {
   });
 }
 
+searchInputFunc();
 carouselBtn();
 

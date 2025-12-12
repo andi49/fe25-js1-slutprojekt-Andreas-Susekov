@@ -13,17 +13,26 @@
         <a href="#news">Movie</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
-        <input type="text" placeholder="Search.." name="search">
+        <form id="searchForm">
+          <input type="text" id="search" placeholder="Search..." />
+          <button type="submit">Go</button>
+        </form>
       </div>
     </nav>
+
     <section>
+        <h1 class="centerTop">Top movie</h1>
       <div class="topMovieCarusel" id="movieCarusel">
         <button id="prevBtn" class="buttonStyle">&lt;</button>
         <div class="topMovieCarusel" id="carousel"></div>
         <button id="nextBtn" class="buttonStyle">&gt;</button>
       </div>
     </section>
-    <section></section>
+
+    
+
+    
+  
   </body>
   <script src="js/main.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
