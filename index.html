@@ -13,30 +13,44 @@
         <a href="#news">Movie</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
-        <form id="searchForm">
-          <input type="text" id="search" placeholder="Search..." />
-          <button type="submit">Go</button>
-        </form>
       </div>
     </nav>
 
     <section class="firstBackGroundSection">
-        <h1 class="centerTop">Top movie</h1> 
-        <select name="" id="selectTop" class="selectTop">
-            <option value="top_rated">Top Rated</option>
-              <option value="popular">Popular</option>
-        </select>
+      <h1 class="centerTop">Top movie</h1>
+      <select name="" id="selectTop" class="selectTop">
+        <option value="top_rated">Top Rated</option>
+        <option value="popular">Popular</option>
+      </select>
       <div class="topMovieCarusel" id="movieCarusel">
         <button id="prevBtn" class="buttonStyle">&lt;</button>
         <div class="topMovieCarusel" id="carousel"></div>
         <button id="nextBtn" class="buttonStyle">&gt;</button>
       </div>
     </section>
+    <section class="searchSection">
+      <div class="search-container">
+        <form id="searchForm">
+          <input
+            type="text"
+            id="search"
+            placeholder="Search..."
+            class="inputSearch"
+          />
+          <!-- <button type="submit">Go</button> -->
+        </form>
+      </div>
+      <div id="showSearchedObj" class="showSearchedObj">
 
-    
+      </div>
+      <!-- <h1 class="firstImg" id="getUserSearched">
+        Search after a movie or person
+      </h1> -->
+      <img src="img/movies.png" alt="" class="firstImg" id="firstImg" />
+    </section>
+    <footer>
 
-    
-  
+    </footer>
   </body>
   <script src="js/main.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>

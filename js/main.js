@@ -1,5 +1,6 @@
-import { getDataMovie, getDataPopular, searchMovie } from "./api.js";
+import { getDataMovie  } from "./api.js";
 import { searchInputFunc } from "./search.js";
+
 // import { popularMovie } from "./popularMovie.js";
 
 function renderMovies(movies) {
@@ -7,8 +8,6 @@ function renderMovies(movies) {
   const carousel = document.getElementById("carousel");
 
   carousel.innerHTML = "";
-
-  const movieRow = document.querySelector("#movieCarusel");
 
   const moveListes = document.createElement("div");
   moveListes.classList.add("movie-list");
@@ -86,5 +85,13 @@ selected.addEventListener("change", async (event) => {
   renderMovies(data.results);
 });
 
+
+
+
+
+
+
 searchInputFunc();
 carouselBtn();
+
+

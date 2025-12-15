@@ -1,9 +1,9 @@
 // Heter Access Token Auth i TMDB
-export async function getDataMovie(category = "top_rated") {
+export async function getDataPopular() {
   const BAERER_KEY =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MmVkOTkxMzRhYWYxZjBiYTBhZmU0ZWEwZmFjMDdhNiIsIm5iZiI6MTc2NTM2NDYyMS4yNDgsInN1YiI6IjY5Mzk1MzhkNDAyMmI4MTExZWFmMDY3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8ZJyuuRfGvaFqtxi6kGMaqCVxS4A09pr-M9-C3Ib1TI";
 
-  const url = `https://api.themoviedb.org/3/movie/${category}`;
+  const url = "https://api.themoviedb.org/3/movie/popular";
 
   const options = {
     method: "GET",
@@ -30,11 +30,13 @@ export async function getDataMovie(category = "top_rated") {
   }
 }
 
-export async function getDataPopular() {
+
+
+export async function getDataMovie(category = "top_rated") {
   const BAERER_KEY =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MmVkOTkxMzRhYWYxZjBiYTBhZmU0ZWEwZmFjMDdhNiIsIm5iZiI6MTc2NTM2NDYyMS4yNDgsInN1YiI6IjY5Mzk1MzhkNDAyMmI4MTExZWFmMDY3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8ZJyuuRfGvaFqtxi6kGMaqCVxS4A09pr-M9-C3Ib1TI";
 
-  const url = "https://api.themoviedb.org/3/movie/popular";
+  const url = `https://api.themoviedb.org/3/movie/${category}`;
 
   const options = {
     method: "GET",
