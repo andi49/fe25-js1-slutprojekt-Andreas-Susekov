@@ -137,3 +137,11 @@
   transition: all ease-in-out 0.2s;
   font-size: 16px;
 }
+
+.firstBackGroundSection{
+  background-color: var(--Midnight-Black);
+}
+
+.selectTop{
+  margin-left: 100px;
+}
