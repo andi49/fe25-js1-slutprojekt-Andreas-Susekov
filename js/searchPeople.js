@@ -18,7 +18,7 @@ searchForm.addEventListener("submit", async (e) => {
   console.log("Search for:", result);
 
   const firstImgSide = document.querySelector('#firstImg')
-  // firstImgSide.remove()
+  firstImgSide.remove()
 
   const getDisplaySearched = document.querySelector('#getUserSearched')
   const fakeDiv = document.querySelector('#showSearchedObj')
