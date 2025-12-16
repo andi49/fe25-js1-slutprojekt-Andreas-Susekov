@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/493314404e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
     <title>ReelLibrary</title>
   </head>
@@ -23,13 +24,14 @@
         <option value="popular">Popular</option>
       </select>
       <div class="topMovieCarusel" id="movieCarusel">
-        <button id="prevBtn" class="buttonStyle">&lt;</button>
+        <button id="prevBtn" class="buttonStyle"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="topMovieCarusel" id="carousel"></div>
-        <button id="nextBtn" class="buttonStyle">&gt;</button>
+        <button id="nextBtn" class="buttonStyle"><i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </section>
     <section class="searchSection">
       <div class="search-container">
+
         <form id="searchForm">
           <input
             type="text"
@@ -37,19 +39,63 @@
             placeholder="Search..."
             class="inputSearch"
           />
+           <select name="" id="selectTypeNow" class="selectTop">
+        <option value="movie">Movie</option>
+        <option value="person">Person</option>
+      </select>
           <!-- <button type="submit">Go</button> -->
         </form>
       </div>
+        <h1 class="firstImg" id="getUserSearched">
+        Search after a movie or person
+      </h1>
       <div id="showSearchedObj" class="showSearchedObj">
 
       </div>
-      <!-- <h1 class="firstImg" id="getUserSearched">
-        Search after a movie or person
-      </h1> -->
+    
       <img src="img/movies.png" alt="" class="firstImg" id="firstImg" />
     </section>
-    <footer>
 
+
+
+    <footer>
+<div class="footer-marquee">
+    <span>Now Showing: Top Movies &nbsp;•&nbsp; Coming Soon: Blockbusters &nbsp;•&nbsp; Exclusive Previews &nbsp;•&nbsp;</span>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>About Cinema</h3>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Now Showing</a></li>
+        <li><a href="#">Coming Soon</a></li>
+        <li><a href="#">Tickets</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 MovieMagic Cinema. All rights reserved.
+  </div>
     </footer>
   </body>
   <script src="js/main.js" type="module"></script>

@@ -1,5 +1,6 @@
-import { getDataMovie  } from "./api.js";
-import { searchInputFunc } from "./search.js";
+import { getDataMovie, searchMovieOrPerson } from "./api.js";
+import { searchInputFunc } from "./searchMovie.js";
+import {searchInputFuncPeople} from "./searchPeople.js"
 
 // import { popularMovie } from "./popularMovie.js";
 
@@ -74,6 +75,8 @@ function carouselBtn() {
   });
 }
 
+
+
 const selected = document.querySelector("#selectTop");
 
 selected.addEventListener("change", async (event) => {
@@ -87,7 +90,21 @@ selected.addEventListener("change", async (event) => {
 
 
 
+const selectedTwo = document.querySelector("#selectTypeNow");
 
+selectedTwo.addEventListener("change", async (event) => {
+  const category = event.target.value;
+    console.log(category)
+
+  const dataTwo = await searchMovieOrPerson(category);
+  console.log(dataTwo);
+
+  if(category === "movie" ) {
+    searchInputFunc()
+  } else if (category === "person") {
+    searchInputFuncPeople()
+  }
+});
 
 
 
