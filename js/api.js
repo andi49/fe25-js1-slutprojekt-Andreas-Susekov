@@ -20,12 +20,13 @@ export async function getDataMovie(category = "top_rated") {
       throw new Error(`HTTP error: ${res.status}`);
     }
 
+
     const data = await res.json();
     return data;
   }
   
-   catch (err) {
-    console.error("Data error", err);
+   catch (error) {
+    console.error("Data error", error);
     return null;
   }
 }
@@ -52,12 +53,18 @@ export async function searchMovieOrPerson(searcht, type = "movie") {
       throw new Error(`HTTP error: ${res.status}`);
     }
 
+  
+
     const data = await res.json();
     return data;
+    
+     
   }
   
-   catch (err) {
-    console.error("Data error", err);
+   catch (error) {
+    console.error("Data error", error);
+    
+    
     return null;
   }
 }

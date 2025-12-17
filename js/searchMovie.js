@@ -5,6 +5,9 @@ export function searchInputMovie(result) {
   console.log("User searched:", searcht);
   console.log("Search results:", result);
 
+  // const firstImgSide = document.querySelector("#firstImg");
+  // firstImgSide.remove();
+
   const getDisplaySearched = document.querySelector("#getUserSearched");
   const contaier = document.querySelector("#showSearchedObj");
   contaier.innerHTML = "";
@@ -13,8 +16,6 @@ export function searchInputMovie(result) {
 const base = "https://image.tmdb.org/t/p/w500";
 
   result.results.forEach((element) => {
-    
-
     const wrapperDiv = document.createElement("div");
     const titleMovie = document.createElement("h2");
     const imgMovie = document.createElement("img");
@@ -22,7 +23,6 @@ const base = "https://image.tmdb.org/t/p/w500";
     const shortDesc = document.createElement("p");
 
     wrapperDiv.classList.add("item");
-
     wrapperDiv.appendChild(titleMovie);
     wrapperDiv.appendChild(imgMovie);
     wrapperDiv.appendChild(releaseDateMovie);

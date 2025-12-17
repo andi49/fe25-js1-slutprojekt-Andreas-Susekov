@@ -10,7 +10,14 @@
 }
 
 
+::-webkit-scrollbar{
+  background-color: var(--Midnight-Black);
+  color: var(--Crimson-Blue);
+}
 
+::-webkit-scrollbar-track {
+ color: var(--Crimson-Blue);
+}
 
 .topnav {
    display: flex;
@@ -48,9 +55,17 @@
 }
 
 .centerTop{
+  text-transform: uppercase;
+  font-size: 3.5rem;
   text-align: center;
   background-color: var(--Midnight-Black);
   color: white;
+}
+
+.centerTop:hover {
+  color: var(--Crimson-Blue);
+  
+  text-shadow: 0 0 5px var(--Crimson-Blue);
 }
 
 /* Innerhåller allt */
@@ -145,7 +160,27 @@
 }
 
 .selectTop{
-  margin-left: 100px;
+  margin-left: 50px;
+  text-align: center;
+  width: 150px;
+   height: 50px;
+   margin-bottom: 20px;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border: 4px solid #000;
+  border-radius: 0;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 5px 5px 0 #000, 10px 10px 0 var(--Crimson-Blue);
+}
+
+.selectTop:hover {
+   color: var(--Crimson-Blue);
+  box-shadow: 0 0 5px var(--Crimson-Blue);
+  text-shadow: 0 0 5px var(--Crimson-Blue);
 }
 
 /* searchSection */
@@ -202,13 +237,25 @@ text-align: center;
   flex-wrap: wrap; /* allows multiple rows if needed */
 }
 
+
+/* Source for box-shadow https://getcssscan.com/css-box-shadow-examples */
 .item {
+  margin-bottom: 25px;
+  line-height: 1.9;
+  font-size: 1rem;
    text-transform: uppercase;
   color: white;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 25%;
+  box-shadow:
+  rgba(74, 144, 226, 0.18) 0px 54px 55px,
+  rgba(74, 144, 226, 0.10) 0px -12px 30px,
+  rgba(74, 144, 226, 0.10) 0px 4px 6px,
+  rgba(74, 144, 226, 0.14) 0px 12px 13px,
+  rgba(74, 144, 226, 0.08) 0px -3px 5px;
 }
 
 .showSearchedObj img {
@@ -222,8 +269,9 @@ text-align: center;
   footer {
     background: #000;
     padding: 40px 20px;
-    position: relative;
+   
     overflow: hidden;
+   
   }
 
   /* Glowing marquee text effect */
@@ -292,17 +340,75 @@ text-align: center;
     color: #aaa;
   }
 
-  /* Optional: stars in background */
-  footer::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
- 
-    opacity: 0.1;
-    z-index: 0;
-  }
+
 
   footer * {
     position: relative;
     z-index: 1;
   }
+
+  .listStyle{
+    list-style-type: none;
+    margin: 5px;
+    font-size: 1rem;
+  }
+
+.errorMessage{
+  color: red;
+}
+
+.box {
+  display: flex;
+}
+
+.box button {
+  text-align: center;
+   width: 150px;
+   height: 50px;
+   margin-bottom: 20px;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border: 4px solid #000;
+  border-radius: 0;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 5px 5px 0 #000, 10px 10px 0 var(--Crimson-Blue);
+}
+
+.box select {
+    text-align: center;
+  width: 150px;
+   height: 50px;
+   margin-bottom: 20px;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border: 4px solid #000;
+  border-radius: 0;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 5px 5px 0 #000, 10px 10px 0 var(--Crimson-Blue);
+}
+
+.box input:hover {
+  
+  box-shadow: 0 0 5px var(--Crimson-Blue);
+  text-shadow: 0 0 5px var(--Crimson-Blue);
+}
+
+.box select:hover {
+   color: var(--Crimson-Blue);
+  box-shadow: 0 0 5px var(--Crimson-Blue);
+  text-shadow: 0 0 5px var(--Crimson-Blue);
+}
+
+.box button:hover {
+  color: var(--Crimson-Blue);
+  box-shadow: 0 0 5px var(--Crimson-Blue);
+  text-shadow: 0 0 5px var(--Crimson-Blue);
+}
