@@ -1,50 +1,38 @@
-import { searchMovieOrPerson } from "./api.js";
-
-export function searchInputFunc() {
-  const searchForm = document.querySelector("#searchForm");
+export function searchInputMovie(result) {
   const searchInput = document.querySelector("#search");
-  const selectElement = document.querySelector("#selectTypeNow");
-
-  searchForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-     const searcht = searchInput.value.trim();
-    const type = selectElement.value;
-  
+  const searcht = searchInput.value.trim();
+ 
   console.log("User searched:", searcht);
+  console.log("Search results:", result);
 
-    const result = await searchMovieOrPerson(searcht, type);
+  const getDisplaySearched = document.querySelector("#getUserSearched");
+  const contaier = document.querySelector("#showSearchedObj");
+  contaier.innerHTML = "";
+  getDisplaySearched.innerHTML = `You searched for ${searcht}`;
 
-    console.log("Search results:", result);
+const base = "https://image.tmdb.org/t/p/w500";
 
-    const firstImgSide = document.querySelector("#firstImg");
-    firstImgSide.remove();
+  result.results.forEach((element) => {
+    
 
-    const getDisplaySearched = document.querySelector("#getUserSearched");
+    const wrapperDiv = document.createElement("div");
+    const titleMovie = document.createElement("h2");
+    const imgMovie = document.createElement("img");
+    const releaseDateMovie = document.createElement("p");
+    const shortDesc = document.createElement("p");
 
-    getDisplaySearched.innerHTML = `You searched for ${searcht}`;
+    wrapperDiv.classList.add("item");
 
-    result.results.forEach((element) => {
-      const base = "https://image.tmdb.org/t/p/w500";
+    wrapperDiv.appendChild(titleMovie);
+    wrapperDiv.appendChild(imgMovie);
+    wrapperDiv.appendChild(releaseDateMovie);
+    wrapperDiv.appendChild(shortDesc);
 
-      const wrapperDiv = document.createElement("div");
-      const fakeH2 = document.createElement("h2");
-      const fakeIMgTag = document.createElement("img");
-      const fakePtag = document.createElement("p");
-      const shortDesc = document.createElement("p");
+      contaier.appendChild(wrapperDiv);
 
-      wrapperDiv.classList.add("item");
-
-      wrapperDiv.appendChild(fakeH2);
-      wrapperDiv.appendChild(fakeIMgTag);
-      wrapperDiv.appendChild(fakePtag);
-      wrapperDiv.appendChild(shortDesc);
-      document.getElementById("showSearchedObj").appendChild(wrapperDiv);
-
-      fakeH2.innerText = element.title;
-      fakeIMgTag.src = element.src = base + element.poster_path;
-      fakePtag.innerText = element.release_date;
-      shortDesc.innerText = element.overview;
-    });
+    titleMovie.innerHTML = element.title;
+    imgMovie.src = base + element.poster_path;
+    releaseDateMovie.innerHTML = element.release_date;
+    shortDesc.innerHTML = element.overview;
   });
 }
