@@ -5,6 +5,15 @@ export function searchInputFuncPeople(result) {
   console.log("User searched:", searcht);
   console.log("Search results:", result);
 
+
+/// här kollar vi om använder skrivit något fel och get dem en "error message"
+    if (!result.results[0]) {
+      const getDisplaySearched = document.querySelector('#getUserSearched');
+      getDisplaySearched.classList.add('errorMessage');
+      getDisplaySearched.innerHTML = `You search is not found`;
+      return;
+    }
+
   // const firstImgSide = document.querySelector("#firstImg");
   // firstImgSide.remove();
 
@@ -15,6 +24,8 @@ export function searchInputFuncPeople(result) {
 
 const base = "https://image.tmdb.org/t/p/w500";
   
+ /// Loopar igenom api resultat och skapar html-element
+ /// element fylls på med "Element/data" från api som sedan renderas på hemsida 
   result.results.forEach((resultData) => {
     const wrapperDiv = document.createElement("div");
     const name = document.createElement("h2");
