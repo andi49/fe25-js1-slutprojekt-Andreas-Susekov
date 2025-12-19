@@ -7,7 +7,7 @@ export function renderMovies(movies) {
   const moveListes = document.createElement("div");
   moveListes.classList.add("movie-list");
 
-  movies.slice(0, 10).forEach((movie, i) => {
+  movies.slice(0, 10).forEach((movie) => {
     const movieItem = document.createElement("div");
     movieItem.classList.add("movie-item");
 
@@ -23,6 +23,7 @@ export function renderMovies(movies) {
     releaseDate.textContent = movie.release_date;
     movieItem.appendChild(releaseDate);
 
+    // https://popup.js.org
     img.addEventListener("click", () => {
       const myPopup = new Popup({
         id: "my-popup",
