@@ -1,9 +1,25 @@
 export function searchInputMovie(result) {
   const searchInput = document.querySelector("#search");
   const searcht = searchInput.value.trim();
- 
+
   console.log("User searched:", searcht);
   console.log("Search results:", result);
+
+  if (!navigator.onLine) {
+  const getDisplaySearched = document.querySelector('#getUserSearched');
+    getDisplaySearched.classList.add('errorMessage');
+    getDisplaySearched.innerHTML = `Check your wifi (probably down)`;
+    console.error("Check your wifi (probably down)");
+    return;
+  }
+
+    if (!result) {
+    const getDisplaySearched = document.querySelector('#getUserSearched');
+    getDisplaySearched.classList.add('errorMessage');
+    getDisplaySearched.innerHTML = `Server is (probably down)`;
+    console.error("Server is (probably down)");
+    return;
+  }
 
 /// här kollar vi om använder skrivit något fel och get dem en "error message"
     if (!result.results[0]) {

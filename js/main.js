@@ -4,7 +4,7 @@ import { searchInputFuncPeople } from "./searchPeople.js";
 import { renderMovies } from "./renderMovie.js";
 
 getDataMovie().then((data) => {
-  renderMovies(data.results);
+      renderMovies(data.results);  
 });
 
 /// source

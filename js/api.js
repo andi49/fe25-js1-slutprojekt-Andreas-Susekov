@@ -14,14 +14,14 @@ export async function getDataMovie(category = "top_rated") {
   };
 
   try {
-    const res = await fetch(url, options);
+    const result = await fetch(url, options);
 
-    if (!res.ok) {
-      throw new Error(`HTTP error: ${res.status}`);
+    if (!result.ok) {
+      throw new Error(`HTTP error: ${result.status}`);
     }
 
 
-    const data = await res.json();
+    const data = await result.json();
     return data;
   }
   
@@ -47,15 +47,15 @@ export async function searchMovieOrPerson(searcht, type = "movie") {
   };
 
   try {
-    const res = await fetch(searchUrl, options);
+    const result = await fetch(searchUrl, options);
 
-    if (!res.ok) {
-      throw new Error(`HTTP error: ${res.status}`);
+    if (!result.ok) {
+      throw new Error(`HTTP error: ${result.status}`);
     }
 
   
 
-    const data = await res.json();
+    const data = await result.json();
     return data;
     
      
@@ -69,41 +69,76 @@ export async function searchMovieOrPerson(searcht, type = "movie") {
   }
 }
 
+export async function getDataTv() {
+  const BAERER_KEY =
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MmVkOTkxMzRhYWYxZjBiYTBhZmU0ZWEwZmFjMDdhNiIsIm5iZiI6MTc2NTM2NDYyMS4yNDgsInN1YiI6IjY5Mzk1MzhkNDAyMmI4MTExZWFmMDY3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8ZJyuuRfGvaFqtxi6kGMaqCVxS4A09pr-M9-C3Ib1TI";
+
+  const url = `https://api.themoviedb.org/3/discover/movie`;
+
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${BAERER_KEY}`,
+    },
+  };
+
+  try {
+    const result = await fetch(url, options);
+
+    if (!result.ok) {
+      throw new Error(`HTTP error: ${result.status}`);
+    }
+
+
+    const data = await result.json();
+    return data;
+  }
+  
+   catch (error) {
+    console.error("Data error", error);
+    return null;
+  }
+}
+
+
+export async function getDataReviews(id) {
+  const BAERER_KEY =
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MmVkOTkxMzRhYWYxZjBiYTBhZmU0ZWEwZmFjMDdhNiIsIm5iZiI6MTc2NTM2NDYyMS4yNDgsInN1YiI6IjY5Mzk1MzhkNDAyMmI4MTExZWFmMDY3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8ZJyuuRfGvaFqtxi6kGMaqCVxS4A09pr-M9-C3Ib1TI";
+
+  const url = `https://api.themoviedb.org/3/movie/${id}/reviews`;
+
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${BAERER_KEY}`,
+    },
+  };
+
+  try {
+    const result = await fetch(url, options);
+
+    if (!result.ok) {
+      throw new Error(`HTTP error: ${result.status}`);
+    }
+
+
+    const data = await result.json();
+    return data;
+  }
+  
+   catch (error) {
+    console.error("Data error", error);
+    return null;
+  }
+}
+
+
+
+
 // fetch(url, options)
 //   .then(res => res.json())
 //   .then(json => console.log(json))
 //   .catch(err => console.error('error:' + err));
 
-//
-
-
-// export async function getDataPopular() {
-//   const BAERER_KEY =
-//     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MmVkOTkxMzRhYWYxZjBiYTBhZmU0ZWEwZmFjMDdhNiIsIm5iZiI6MTc2NTM2NDYyMS4yNDgsInN1YiI6IjY5Mzk1MzhkNDAyMmI4MTExZWFmMDY3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8ZJyuuRfGvaFqtxi6kGMaqCVxS4A09pr-M9-C3Ib1TI";
-
-//   const url = "https://api.themoviedb.org/3/movie/popular";
-
-//   const options = {
-//     method: "GET",
-//     headers: {
-//       accept: "application/json",
-//       Authorization: `Bearer ${BAERER_KEY}`,
-//     },
-//   };
-
-//   try {
-//     const res = await fetch(url, options);
-
-//     if (!res.ok) {
-//       throw new Error(`HTTP error: ${res.status}`);
-//     }
-
-//     const data = await res.json();
-//     return data;
-//   }
-  
-//    catch (err) {
-//     console.error("Data error", err);
-//     return null;
-//   }
-// }

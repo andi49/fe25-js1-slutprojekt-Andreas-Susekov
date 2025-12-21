@@ -3,7 +3,7 @@ export function renderMovies(movies) {
   const carousel = document.getElementById("carousel");
 
   carousel.innerHTML = "";
-
+  console.log(movies)
   const moveListes = document.createElement("div");
   moveListes.classList.add("movie-list");
 
