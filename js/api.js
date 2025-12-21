@@ -20,12 +20,9 @@ export async function getDataMovie(category = "top_rated") {
       throw new Error(`HTTP error: ${result.status}`);
     }
 
-
     const data = await result.json();
     return data;
-  }
-  
-   catch (error) {
+  } catch (error) {
     console.error("Data error", error);
     return null;
   }
@@ -34,7 +31,6 @@ export async function getDataMovie(category = "top_rated") {
 export async function searchMovieOrPerson(searcht, type = "movie") {
   const BAERER_KEY =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MmVkOTkxMzRhYWYxZjBiYTBhZmU0ZWEwZmFjMDdhNiIsIm5iZiI6MTc2NTM2NDYyMS4yNDgsInN1YiI6IjY5Mzk1MzhkNDAyMmI4MTExZWFmMDY3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8ZJyuuRfGvaFqtxi6kGMaqCVxS4A09pr-M9-C3Ib1TI";
-
 
   const searchUrl = `https://api.themoviedb.org/3/search/${type}?query=${searcht}`;
 
@@ -53,23 +49,16 @@ export async function searchMovieOrPerson(searcht, type = "movie") {
       throw new Error(`HTTP error: ${result.status}`);
     }
 
-  
-
     const data = await result.json();
     return data;
-    
-     
-  }
-  
-   catch (error) {
+  } catch (error) {
     console.error("Data error", error);
-    
-    
+
     return null;
   }
 }
 
-export async function getDataTv() {
+export async function getDataMovieTv() {
   const BAERER_KEY =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MmVkOTkxMzRhYWYxZjBiYTBhZmU0ZWEwZmFjMDdhNiIsIm5iZiI6MTc2NTM2NDYyMS4yNDgsInN1YiI6IjY5Mzk1MzhkNDAyMmI4MTExZWFmMDY3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8ZJyuuRfGvaFqtxi6kGMaqCVxS4A09pr-M9-C3Ib1TI";
 
@@ -90,17 +79,16 @@ export async function getDataTv() {
       throw new Error(`HTTP error: ${result.status}`);
     }
 
-
     const data = await result.json();
     return data;
-  }
-  
-   catch (error) {
+  } catch (error) {
     console.error("Data error", error);
-    return null;
+    if (!data.error) {
+    console.error("Server is (probably down)");
+    return;
+}
   }
 }
-
 
 export async function getDataReviews(id) {
   const BAERER_KEY =
@@ -123,22 +111,10 @@ export async function getDataReviews(id) {
       throw new Error(`HTTP error: ${result.status}`);
     }
 
-
     const data = await result.json();
     return data;
-  }
-  
-   catch (error) {
+  } catch (error) {
     console.error("Data error", error);
     return null;
   }
 }
-
-
-
-
-// fetch(url, options)
-//   .then(res => res.json())
-//   .then(json => console.log(json))
-//   .catch(err => console.error('error:' + err));
-

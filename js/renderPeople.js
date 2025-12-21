@@ -5,6 +5,9 @@ export function searchInputFuncPeople(result) {
   console.log("User searched:", searcht);
   console.log("Search results:", result);
 
+
+  /// Här kollar vi om deras nätverk är nere som kommer det vissas på hemsidan en error
+
     if (!navigator.onLine) {
   const getDisplaySearched = document.querySelector('#getUserSearched');
     getDisplaySearched.classList.add('errorMessage');
@@ -12,6 +15,9 @@ export function searchInputFuncPeople(result) {
     console.error("Check your wifi (probably down)");
     return;
   }
+
+
+  /// Här kollar vi om API är nere som kommer det vissas på hemsidan en error
 
     if (!result) {
     const getDisplaySearched = document.querySelector('#getUserSearched');
@@ -40,7 +46,7 @@ export function searchInputFuncPeople(result) {
 const base = "https://image.tmdb.org/t/p/w500";
   
  /// Loopar igenom api resultat och skapar html-element
- /// element fylls på med "Element/data" från api som sedan renderas på hemsida 
+ /// resultData fylls på med "elements/data" från api som sedan renderas på hemsida 
   result.results.forEach((resultData) => {
     const wrapperDiv = document.createElement("div");
     const name = document.createElement("h2");

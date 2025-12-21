@@ -13,15 +13,11 @@ if (review) {
   contentReview.textContent = review.content;
   contentReview.classList.add("tv-item-text");
 
-  
-
   div.appendChild(arthur);
   div.appendChild(contentReview);
   container.appendChild(div);
 
 
   
-}
-
-    
+}    
 }

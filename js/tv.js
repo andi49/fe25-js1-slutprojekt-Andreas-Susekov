@@ -1,5 +1,5 @@
-import { getDataTv } from "./api.js";
-import {renderTV} from './renderRatedMovies.js'
-getDataTv().then((data) => {
-   renderTV(data);
+import { getDataMovieTv } from "./api.js";
+import {renderMovieTV} from './renderRatedMovies.js'
+getDataMovieTv().then((data) => {
+   renderMovieTV(data);
 });

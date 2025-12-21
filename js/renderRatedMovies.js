@@ -1,38 +1,39 @@
 import {getDataReviews} from './api.js'
 import { renderReviews } from './renderReviews.js';
-export  function renderTV(dataTwo) {
+
+export  function renderMovieTV(mediaList) {
     const base = "https://image.tmdb.org/t/p/w500";
 
     const moveListes = document.createElement("div");
     moveListes.classList.add("tv-list");
 
-    dataTwo.results.slice(0, 5).forEach((datas) => {
+    mediaList.results.slice(0, 5).forEach((item) => {
       const movieItem = document.createElement("div");
       movieItem.classList.add("tv-item");
 
       const img = document.createElement("img");
-      img.src = base + datas.poster_path;
+      img.src = base + item.poster_path;
       movieItem.appendChild(img);
 
       const title = document.createElement("h1");
-      localStorage.setItem("name", (title.textContent = datas.title));
+      localStorage.setItem("name", (title.textContent = item.title));
       title.classList.add("tv-item");
       movieItem.appendChild(title);
 
       const releaseDate = document.createElement("p");
-      localStorage.setItem( "releaseData",(releaseDate.textContent = datas.release_date));
+      localStorage.setItem( "releaseData",(releaseDate.textContent = item.release_date));
 
       
-      getDataReviews(datas.id).then((lol) => {
-          renderReviews(lol.results, movieItem)
+      getDataReviews(item.id).then((rew) => {
+          renderReviews(rew.results, movieItem)
 
-          console.log(lol)     
+          console.log(rew)     
           
-          const inputKey = "Comment" + " " + datas.id;
+          const inputKey = "Comment" + " " + item.id;
 
       const userInput = document.createElement("textarea");
  
-      const userRew = document.createElement("p");
+   
       const contentReview = document.createElement("p");
      contentReview.classList.add('textArea')
       const savedComment = localStorage.getItem(inputKey) || "";

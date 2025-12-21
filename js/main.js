@@ -1,10 +1,10 @@
 import { getDataMovie, searchMovieOrPerson } from "./api.js";
-import { searchInputMovie } from "./searchMovie.js";
-import { searchInputFuncPeople } from "./searchPeople.js";
-import { renderMovies } from "./renderMovie.js";
+import { searchInputMovie } from "./renderMovie.js";
+import { searchInputFuncPeople } from "./renderPeople.js";
+import { renderCategorysMovies } from "./renderCategoryMovies.js";
 
 getDataMovie().then((data) => {
-      renderMovies(data.results);  
+      renderCategorysMovies(data.results);  
 });
 
 /// source
@@ -37,7 +37,7 @@ selectedCatergorys.addEventListener('change', async (event) => {
   const category = event.target.value; 
   centerTopH1.innerHTML = category  
   const data = await getDataMovie(category); 
-  renderMovies(data.results); 
+  renderCategorysMovies (data.results); 
 });
 
 

@@ -1,50 +1,67 @@
-export function renderMovies(movies) {
-  const base = "https://image.tmdb.org/t/p/w500";
-  const carousel = document.getElementById("carousel");
+export function searchInputMovie(result) {
+  const searchInput = document.querySelector("#search");
+  const searcht = searchInput.value.trim();
 
-  carousel.innerHTML = "";
-  console.log(movies)
-  const moveListes = document.createElement("div");
-  moveListes.classList.add("movie-list");
+  console.log("User searched:", searcht);
+  console.log("Search results:", result);
 
-  movies.slice(0, 10).forEach((movie) => {
-    const movieItem = document.createElement("div");
-    movieItem.classList.add("movie-item");
+  /// Här kollar vi om deras nätverk är nere som kommer det vissas på hemsidan en error
 
-    const img = document.createElement("img");
-    img.src = base + movie.poster_path;
-    movieItem.appendChild(img);
+  if (!navigator.onLine) {
+  const getDisplaySearched = document.querySelector('#getUserSearched');
+    getDisplaySearched.classList.add('errorMessage');
+    getDisplaySearched.innerHTML = `Check your wifi (probably down)`;
+    console.error("Check your wifi (probably down)");
+    return;
+  }
 
-    const title = document.createElement("h1");
-    title.textContent = movie.title;
-    movieItem.appendChild(title);
+  /// Här kollar vi om API är nere som kommer det vissas på hemsidan en error
 
-    const releaseDate = document.createElement("p");
-    releaseDate.textContent = movie.release_date;
-    movieItem.appendChild(releaseDate);
+    if (!result) {
+    const getDisplaySearched = document.querySelector('#getUserSearched');
+    getDisplaySearched.classList.add('errorMessage');
+    getDisplaySearched.innerHTML = `Server is (probably down)`;
+    console.error("Server is (probably down)");
+    return;
+  }
 
-    // https://popup.js.org
-    img.addEventListener("click", () => {
-      const myPopup = new Popup({
-        id: "my-popup",
-        title: `<p style="font-Size:2rem">${movie.title}</p>`,
-        borderRadius: "50px",
-        closeColor: "red",
-        content: `
-    <img src="${img.src}" style="width: 20%;">
-  <h2>Release: ${movie.release_date}</h2>
-  <p style="font-Size:1rem;"> ${movie.overview} </p>
-    `,
-        style: {
-          width: "50px",
-          maxWidth: "50%",
-        },
-      });
+/// här kollar vi om använder skrivit något fel och get dem en "error message"
+    if (!result.results[0]) {
+    const getDisplaySearched = document.querySelector('#getUserSearched');
+    getDisplaySearched.classList.add('errorMessage');
+    getDisplaySearched.innerHTML = `You search is not found`;
+    return;
+  }
+  // const firstImgSide = document.querySelector("#firstImg");
+  // firstImgSide.remove();
 
-      myPopup.show();
-    });
-    moveListes.appendChild(movieItem);
+  const getDisplaySearched = document.querySelector("#getUserSearched");
+  const contaier = document.querySelector("#showSearchedObj");
+  contaier.innerHTML = "";
+  getDisplaySearched.innerHTML = `You searched for ${searcht}`;
+
+const base = "https://image.tmdb.org/t/p/w500";
+
+ /// Loopar igenom api results och skapar html-element
+ /// element fylls på med "Element/data" från api som sedan renderas på hemsida 
+  result.results.forEach((element) => {
+    const wrapperDiv = document.createElement("div");
+    const titleMovie = document.createElement("h2");
+    const imgMovie = document.createElement("img");
+    const releaseDateMovie = document.createElement("p");
+    const shortDesc = document.createElement("p");
+
+    wrapperDiv.classList.add("item");
+    wrapperDiv.appendChild(titleMovie);
+    wrapperDiv.appendChild(imgMovie);
+    wrapperDiv.appendChild(releaseDateMovie);
+    wrapperDiv.appendChild(shortDesc);
+
+      contaier.appendChild(wrapperDiv);
+
+    titleMovie.innerHTML = element.title;
+    imgMovie.src = base + element.poster_path;
+    releaseDateMovie.innerHTML = element.release_date;
+    shortDesc.innerHTML = element.overview;
   });
-
-  carousel.appendChild(moveListes);
 }
