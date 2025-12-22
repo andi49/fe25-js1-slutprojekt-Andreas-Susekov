@@ -38,6 +38,8 @@ export function searchInputFuncPeople(result) {
   // const firstImgSide = document.querySelector("#firstImg");
   // firstImgSide.remove();
 
+  /// Rensar gamla sökresultat
+
   const getDisplaySearched = document.querySelector("#getUserSearched");
   const contaier = document.querySelector("#showSearchedObj");
   contaier.innerHTML = "";
@@ -46,7 +48,7 @@ export function searchInputFuncPeople(result) {
 const base = "https://image.tmdb.org/t/p/w500";
   
  /// Loopar igenom api resultat och skapar html-element
- /// resultData fylls på med "elements/data" från api som sedan renderas på hemsida 
+ /// resultData fylls på med "data" från api som sedan renderas på hemsida 
   result.results.forEach((resultData) => {
     const wrapperDiv = document.createElement("div");
     const name = document.createElement("h2");
@@ -61,6 +63,7 @@ const base = "https://image.tmdb.org/t/p/w500";
 
     contaier.appendChild(wrapperDiv);
 
+  
     name.innerHTML = resultData.original_name;
     pictureOfActor.src = base + resultData.profile_path;
     knownFor.innerHTML = `Known for in department ${resultData.known_for_department}`;

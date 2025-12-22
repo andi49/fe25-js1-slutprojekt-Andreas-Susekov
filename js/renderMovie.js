@@ -42,7 +42,7 @@ export function searchInputMovie(result) {
 
 const base = "https://image.tmdb.org/t/p/w500";
 
- /// Loopar igenom api results och skapar html-element
+ /// Loopar igenom api resultat och skapar html-element
  /// element fylls på med "Element/data" från api som sedan renderas på hemsida 
   result.results.forEach((element) => {
     const wrapperDiv = document.createElement("div");
@@ -57,11 +57,17 @@ const base = "https://image.tmdb.org/t/p/w500";
     wrapperDiv.appendChild(releaseDateMovie);
     wrapperDiv.appendChild(shortDesc);
 
-      contaier.appendChild(wrapperDiv);
+    contaier.appendChild(wrapperDiv);
 
     titleMovie.innerHTML = element.title;
     imgMovie.src = base + element.poster_path;
     releaseDateMovie.innerHTML = element.release_date;
     shortDesc.innerHTML = element.overview;
+
+
+    imgMovie.onerror = function() {
+      this.onerror = null;
+     this.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUR6-brtBKGbqxUUqGgMcgESh8OElnB5CXow&s'
+    }
   });
 }

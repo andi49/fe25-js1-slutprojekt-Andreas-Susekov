@@ -69,7 +69,6 @@ const getDisplaySearched = document.querySelector('#getUserSearched')
   const result = await searchMovieOrPerson(type, category);
 
 
-
   if (category === 'movie') {
     searchInputMovie(result);
   } else if (category === 'person') {
