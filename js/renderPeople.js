@@ -76,7 +76,7 @@ const base = "https://image.tmdb.org/t/p/w500";
       movieSeriesType.appendChild(movieSeriesTypeList);
        wrapperDiv.appendChild(movieSeriesType)
 
-      movieSeriesTypeList.textContent = `${item.media_type}: ${item.title}`;
+      movieSeriesTypeList.innerHTML = `${item.media_type}: ${item.title}`;
     });
   });
 }

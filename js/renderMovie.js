@@ -63,11 +63,5 @@ const base = "https://image.tmdb.org/t/p/w500";
     imgMovie.src = base + element.poster_path;
     releaseDateMovie.innerHTML = element.release_date;
     shortDesc.innerHTML = element.overview;
-
-
-    imgMovie.onerror = function() {
-      this.onerror = null;
-     this.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUR6-brtBKGbqxUUqGgMcgESh8OElnB5CXow&s'
-    }
   });
 }

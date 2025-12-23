@@ -68,6 +68,7 @@ export function renderMovieTV(mediaList) {
     movieItem.appendChild(releaseDate);
     moveListes.appendChild(movieItem);
   });
+  const as = document.getElementById('apendme')
 
-  document.body.append(moveListes);
+  as.append(moveListes);
 }
